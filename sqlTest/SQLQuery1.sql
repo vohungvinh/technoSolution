@@ -4,3 +4,4 @@ insert into department(DepartmentName,FinanceMN,Decription) values('ke toan',nul
 insert into role(Department,Decription,Name) values(1,'sdf','nhan vien');
 select Name from employee where Name ='';
 select Name from employee where EmployeeNumber=4;
+select * from ((users inner join employee on users.EmployeeNumber = employee.EmployeeNumber) inner join department on employee.DepartmentId = department.DepartmentNumber); 

@@ -5,11 +5,13 @@
  */
 package module.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Admin
  */
-public class UserDTO {
+public class UserDTO implements Serializable, Comparable<UserDTO>{
     private String password,email;
     private int employeeNumber,role,userId;
 
@@ -66,6 +68,11 @@ public class UserDTO {
     @Override
     public String toString() {
         return "UserDTO{" + "password=" + password + ", email=" + email + ", employeeNumber=" + employeeNumber + ", role=" + role + ", userId=" + userId + '}';
+    }
+
+    @Override
+    public int compareTo(UserDTO t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
