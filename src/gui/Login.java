@@ -7,7 +7,8 @@ package gui;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-
+import module.dao.UserDAO;
+import module.dto.UserDTO;
 /**
  *
  * @author Admin
@@ -17,6 +18,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    UserDAO userPro;
     public Login() {
         initComponents();
     }
@@ -138,7 +140,20 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "login");
+        userPro = new UserDAO();
+        String mail = txtMail.getText();
+        String pass = txtPassword.getText();
+        if(userPro.login(mail, pass) != null){
+            
+            UserDTO user = userPro.login(mail, pass);
+            
+            winMain main = new winMain(user);
+            main.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this,userPro.error);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

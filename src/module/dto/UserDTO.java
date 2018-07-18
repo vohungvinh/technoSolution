@@ -13,15 +13,21 @@ import java.io.Serializable;
  */
 public class UserDTO implements Serializable, Comparable<UserDTO>{
     private String password,email;
-    private int employeeNumber,role,userId;
+    private int role,userId;
 
-    public UserDTO(String email, String password, int role , int employeeNumber) {
+    public UserDTO(String email, String password,int role) {
         this.password = password;
         this.email = email;
-        this.employeeNumber = employeeNumber;
         this.role = role;
     }
 
+    public UserDTO(String password, String email, int userId, int role) {
+        this.password = password;
+        this.email = email;
+        this.role = role;
+        this.userId = userId;
+    }
+    
     public UserDTO() {
     }
 
@@ -41,13 +47,6 @@ public class UserDTO implements Serializable, Comparable<UserDTO>{
         this.email = email;
     }
 
-    public int getEmployeeNumber() {
-        return employeeNumber;
-    }
-
-    public void setEmployeeNumber(int employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
 
     public int getRole() {
         return role;
@@ -67,7 +66,7 @@ public class UserDTO implements Serializable, Comparable<UserDTO>{
 
     @Override
     public String toString() {
-        return "UserDTO{" + "password=" + password + ", email=" + email + ", employeeNumber=" + employeeNumber + ", role=" + role + ", userId=" + userId + '}';
+        return "UserDTO{" + "password=" + password + ", email=" + email +  ", role=" + role + ", userId=" + userId + '}';
     }
 
     @Override

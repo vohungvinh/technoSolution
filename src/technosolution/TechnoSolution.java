@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package technosolution;
-import module.dao.UserDAO;
-import module.dto.UserDTO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import module.dao.*;
+import module.dto.*;
 /**
  *
  * @author Admin
@@ -17,15 +19,17 @@ public class TechnoSolution {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        UserDTO user = new UserDTO("test","test",1,13);
-        UserDAO userProcess = new UserDAO();
-        if(userProcess.create(user)){
-            System.out.println("success");
+       RoleDAO roleDao = new RoleDAO();
+       UserDAO user = new UserDAO();
+        UserDTO dto = new UserDTO("wre@yahoo.com", "testn", 1);
+        if(user.create(dto)){
+            System.out.println("succes ");
         }
         else{
-            System.out.println( userProcess.error);
-            System.out.println("false");
+            System.out.println("fail");
         }
+//        System.out.println("list = " + roleDao.readAllHM().get("nhan vien").getRole());
         }
+    
     
 }
